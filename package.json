@@ -1,0 +1,14 @@
+{
+  "name": "pronuncia-neon-app",
+  "version": "1.0.0",
+  "description": "App de pronúncia com NeonDB e Vercel",
+  "main": "api/palavras.js",
+  "scripts": {
+    "dev": "node api/palavras.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "pg": "^8.11.3"
+  }
+}
