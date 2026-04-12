@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Logs do Sistema</title>
+  <style>
+    body {
+      font-family: monospace;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #334155;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background: #1e293b;
+    }
+    .login-form {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+      margin: 50px auto;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="content"></div>
+  
+  <script>
+    const ADMIN_KEY = prompt('Digite a chave de admin:');
+    
+    if (ADMIN_KEY) {
+      fetch('/api/logs', {
+        headers: { 'x-admin-key': ADMIN_KEY }
+      })
+      .then(res => res.json())
+      .then(logs => {
+        if (logs.error) {
+          document.getElementById('content').innerHTML = `<h2>❌ ${logs.error}</h2>`;
+          return;
+        }
+        
+        let html = '<h1>📋 Logs do Sistema</h1>';
+        html += '<table><tr><th>ID</th><th>Ação</th><th>Palavra (Inglês)</th><th>Palavra (Português)</th><th>IP</th><th>Navegador</th><th>SO</th><th>Data</th></tr>';
+        
+        logs.forEach(log => {
+          html += `<tr>
+            <td>${log.id}</td>
+            <td style="color: ${log.acao === 'ADICIONOU' ? 'green' : log.acao === 'EXCLUIU' ? 'red' : 'orange'}">${log.acao}</td>
+            <td>${log.palavra_ingles || '-'}</td>
+            <td>${log.palavra_portugues || '-'}</td>
+            <td>${log.ip}</td>
+            <td>${log.browser || '-'}</td>
+            <td>${log.os || '-'}</td>
+            <td>${new Date(log.created_at).toLocaleString()}</td>
+          </tr>`;
+        });
+        
+        html += '</table>';
+        document.getElementById('content').innerHTML = html;
+      });
+    }
+  </script>
+</body>
+</html>
