@@ -1,380 +1,549 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Expressões do Dia a Dia - Inglês</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .btn-home {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
-      padding: 12px 20px;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.2s;
-      z-index: 1000;
-    }
-    .btn-home:hover {
-      transform: scale(1.05);
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      color: white;
-    }
-    .card-header {
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    .expression-card {
-      transition: transform 0.2s;
-      cursor: pointer;
-    }
-    .expression-card:hover {
-      transform: translateY(-5px);
-    }
-    .pronounce-btn {
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      border: none;
-      padding: 5px 12px;
-      border-radius: 20px;
-      color: white;
-      font-size: 12px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .pronounce-btn:hover {
-      transform: scale(1.05);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expressões do Dia a Dia - Inglês</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-home {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+            z-index: 1000;
+        }
+
+        .btn-home:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+        }
+
+        .card-header {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .expression-card {
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .expression-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pronounce-btn {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border: none;
+            padding: 5px 12px;
+            border-radius: 20px;
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .pronounce-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
+
 <body class="bg-light">
 
-  <div class="container py-4">
-    <h1 class="text-center mb-4">💬 Expressões do Dia a Dia</h1>
-    <p class="text-center text-muted mb-4">Frases úteis para conversação em inglês</p>
+    <div class="container py-4">
+        <h1 class="text-center mb-4">💬 Expressões do Dia a Dia</h1>
+        <p class="text-center text-muted mb-4">Frases úteis para conversação em inglês</p>
 
-    <div class="row">
-      <!-- Do it again -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">Do it again</h4>
-            <p class="text-muted mb-2">/DU ÍT a-GÉN/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('Do it again')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Faça de novo</h5>
-          </div>
-        </div>
-      </div>
+        <div class="row">
+            <!-- Do it again -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Do it again</h4>
+                        <p class="text-muted mb-2">/DU ÍT a-GÉN/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Do it again')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Faça de novo</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Let me speak -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">Let me speak</h4>
-            <p class="text-muted mb-2">/LÉT MÍ SPÍK/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('Let me speak')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Me deixa falar</h5>
-          </div>
-        </div>
-      </div>
+            <!-- Let me speak -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Let me speak</h4>
+                        <p class="text-muted mb-2">/LÉT MÍ SPÍK/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Let me speak')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Me deixa falar</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- This is for you -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">This is for you</h4>
-            <p class="text-muted mb-2">/DÍS ÍZ FÓR IÚ/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('This is for you')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Isso é pra você</h5>
-          </div>
-        </div>
-      </div>
+            <!-- This is for you -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">This is for you</h4>
+                        <p class="text-muted mb-2">/DÍS ÍZ FÓR IÚ/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('This is for you')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Isso é pra você</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- How do you know? -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">How do you know?</h4>
-            <p class="text-muted mb-2">/HÁU DU IÚ NÔU/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('How do you know?')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Como você sabe?</h5>
-          </div>
-        </div>
-      </div>
+            <!-- How do you know? -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">How do you know?</h4>
+                        <p class="text-muted mb-2">/HÁU DU IÚ NÔU/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('How do you know?')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Como você sabe?</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Calm down -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">Calm down</h4>
-            <p class="text-muted mb-2">/KÁLM DÁUN/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('Calm down')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Acalme-se</h5>
-          </div>
-        </div>
-      </div>
+            <!-- Calm down -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Calm down</h4>
+                        <p class="text-muted mb-2">/KÁLM DÁUN/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Calm down')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Acalme-se</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- I'll go there -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">I'll go there</h4>
-            <p class="text-muted mb-2">/ÁIL GÔU DÉR/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('I will go there')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Eu irei lá</h5>
-          </div>
-        </div>
-      </div>
+            <!-- I'll go there -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">I'll go there</h4>
+                        <p class="text-muted mb-2">/ÁIL GÔU DÉR/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('I will go there')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Eu irei lá</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- At any cost -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">At any cost</h4>
-            <p class="text-muted mb-2">/ÉT ÉNI KÓST/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('At any cost')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 A qualquer custo</h5>
-          </div>
-        </div>
-      </div>
+            <!-- At any cost -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">At any cost</h4>
+                        <p class="text-muted mb-2">/ÉT ÉNI KÓST/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('At any cost')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 A qualquer custo</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- I'm hungry -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">I'm hungry</h4>
-            <p class="text-muted mb-2">/ÁIM HÁNG-RI/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('I am hungry')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Estou com fome</h5>
-          </div>
-        </div>
-      </div>
+            <!-- I'm hungry -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">I'm hungry</h4>
+                        <p class="text-muted mb-2">/ÁIM HÁNG-RI/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('I am hungry')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Estou com fome</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Come here -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">Come here</h4>
-            <p class="text-muted mb-2">/KÁM HÍR/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('Come here')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Vem aqui</h5>
-          </div>
-        </div>
-      </div>
+            <!-- Come here -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Come here</h4>
+                        <p class="text-muted mb-2">/KÁM HÍR/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Come here')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Vem aqui</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Good luck -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">Good luck</h4>
-            <p class="text-muted mb-2">/GÚD LÁK/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('Good luck')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Boa sorte</h5>
-          </div>
-        </div>
-      </div>
+            <!-- Good luck -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Good luck</h4>
+                        <p class="text-muted mb-2">/GÚD LÁK/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Good luck')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Boa sorte</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- See you -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">See you</h4>
-            <p class="text-muted mb-2">/SÍ IÚ/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('See you')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Até logo</h5>
-          </div>
-        </div>
-      </div>
+            <!-- See you -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">See you</h4>
+                        <p class="text-muted mb-2">/SÍ IÚ/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('See you')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Até logo</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Can you go? -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">Can you go?</h4>
-            <p class="text-muted mb-2">/KÉN IÚ GÔU/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('Can you go?')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Você pode vir?</h5>
-          </div>
-        </div>
-      </div>
+            <!-- Can you go? -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Can you go?</h4>
+                        <p class="text-muted mb-2">/KÉN IÚ GÔU/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Can you go?')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Você pode vir?</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Don't run -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">Don't run</h4>
-            <p class="text-muted mb-2">/DÔUNT RÁN/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('Do not run')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Não corra</h5>
-          </div>
-        </div>
-      </div>
+            <!-- Don't run -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Don't run</h4>
+                        <p class="text-muted mb-2">/DÔUNT RÁN/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Do not run')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Não corra</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Catch you later -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">Catch you later</h4>
-            <p class="text-muted mb-2">/KÁTCH IÚ LÉI-TER/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('Catch you later')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Te vejo depois</h5>
-          </div>
-        </div>
-      </div>
+            <!-- Catch you later -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Catch you later</h4>
+                        <p class="text-muted mb-2">/KÁTCH IÚ LÉI-TER/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Catch you later')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Te vejo depois</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Like this -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">Like this</h4>
-            <p class="text-muted mb-2">/LÁIK DÍS/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('Like this')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Desse jeito</h5>
-          </div>
-        </div>
-      </div>
+            <!-- Like this -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Like this</h4>
+                        <p class="text-muted mb-2">/LÁIK DÍS/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Like this')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Desse jeito</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Be careful -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">Be careful</h4>
-            <p class="text-muted mb-2">/BÍ KÉR-ful/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('Be careful')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Tome cuidado</h5>
-          </div>
-        </div>
-      </div>
+            <!-- Be careful -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Be careful</h4>
+                        <p class="text-muted mb-2">/BÍ KÉR-ful/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Be careful')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Tome cuidado</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Help me please -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">Help me please</h4>
-            <p class="text-muted mb-2">/HÉLP MÍ PLÍS/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('Help me please')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Me ajuda, por favor</h5>
-          </div>
-        </div>
-      </div>
+            <!-- Help me please -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Help me please</h4>
+                        <p class="text-muted mb-2">/HÉLP MÍ PLÍS/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Help me please')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Me ajuda, por favor</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- No problem -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">No problem</h4>
-            <p class="text-muted mb-2">/NÔU PRÓ-blém/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('No problem')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Sem problema</h5>
-          </div>
-        </div>
-      </div>
+            <!-- No problem -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">No problem</h4>
+                        <p class="text-muted mb-2">/NÔU PRÓ-blém/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('No problem')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Sem problema</h5>
+                    </div>
+                </div>
+            </div>
 
-      <!-- No need -->
-      <div class="col-md-4 mb-4">
-        <div class="card expression-card h-100 shadow-sm">
-          <div class="card-header bg-warning">
-            🗣️ Expressão
-          </div>
-          <div class="card-body">
-            <h4 class="text-primary">No need</h4>
-            <p class="text-muted mb-2">/NÔU NÍD/</p>
-            <button class="pronounce-btn" onclick="speakPhrase('No need')">🔊 Ouvir</button>
-            <hr>
-            <h5 class="text-success">🇧🇷 Não precisa</h5>
-          </div>
+            <!-- No need -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">No need</h4>
+                        <p class="text-muted mb-2">/NÔU NÍD/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('No need')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Não precisa</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alright -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Alright</h4>
+                        <p class="text-muted mb-2">/ÓL-RÁIT/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Alright')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Tudo certo</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Take it easy -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Take it easy</h4>
+                        <p class="text-muted mb-2">/TÊIK ÍT Í-zi/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Take it easy')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Vai com calma</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Of course -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Of course</h4>
+                        <p class="text-muted mb-2">/ÓV KÓRS/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Of course')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 É claro</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No way -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">No way</h4>
+                        <p class="text-muted mb-2">/NÔU UÉI/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('No way')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Sem chance</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Talk to me -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Talk to me</h4>
+                        <p class="text-muted mb-2">/TÓK TÚ MÍ/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Talk to me')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Fala pra mim</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- I think so -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">I think so</h4>
+                        <p class="text-muted mb-2">/ÁI THÍNK SÔU/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('I think so')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Eu acho que sim</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- You rock -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">You rock</h4>
+                        <p class="text-muted mb-2">/IÚ RÓK/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('You rock')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Você é demais</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- I don't get it -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">I don't get it</h4>
+                        <p class="text-muted mb-2">/ÁI DÔUNT GÉT ÍT/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('I do not get it')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Eu não entendi isso</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forget it -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Forget it</h4>
+                        <p class="text-muted mb-2">/FÓR-GUÉT ÍT/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Forget it')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Esqueça isso</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keep going -->
+            <div class="col-md-4 mb-4">
+                <div class="card expression-card h-100 shadow-sm">
+                    <div class="card-header bg-warning">
+                        🗣️ Expressão
+                    </div>
+                    <div class="card-body">
+                        <h4 class="text-primary">Keep going</h4>
+                        <p class="text-muted mb-2">/KÍP GÔU-IN/</p>
+                        <button class="pronounce-btn" onclick="speakPhrase('Keep going')">🔊 Ouvir</button>
+                        <hr>
+                        <h5 class="text-success">🇧🇷 Continue indo</h5>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Botão para voltar ao app de pronúncia -->
-  <a href="/" class="btn-home">🎙️ Voltar para Pronúncia</a>
+    <!-- Botão para voltar ao app de pronúncia -->
+    <a href="/" class="btn-home">🎙️ Voltar para Pronúncia</a>
 
-  <script>
-    function speakPhrase(phrase) {
-      const utterance = new SpeechSynthesisUtterance(phrase);
-      utterance.lang = 'en-US';
-      utterance.rate = 0.7;
-      speechSynthesis.cancel();
-      speechSynthesis.speak(utterance);
-    }
-  </script>
+    <script>
+        function speakPhrase(phrase) {
+            const utterance = new SpeechSynthesisUtterance(phrase);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.7;
+            speechSynthesis.cancel();
+            speechSynthesis.speak(utterance);
+        }
+    </script>
 </body>
+
 </html>
