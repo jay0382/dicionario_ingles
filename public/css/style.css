@@ -190,6 +190,51 @@ header {
   flex-wrap: wrap;
 }
 
+.btn-vocab {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.btn-vocab:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+  color: white;
+}
+
+.btn-vocab, .btn-expressoes {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.btn-expressoes {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.btn-vocab:hover, .btn-expressoes:hover {
+  transform: scale(1.05);
+  color: white;
+}
+
+.btn-vocab:hover {
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+}
+
+.btn-expressoes:hover {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+}
+
 .btn-speak, .btn-edit, .btn-delete {
   border: none;
   padding: 6px 14px;
