@@ -336,3 +336,110 @@ footer {
     width: 100%;
   }
 }
+
+/* ========== PADRÕES DE PRONÚNCIA ========== */
+.pronunciation-patterns {
+  margin: 40px 0 30px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 24px;
+  padding: 28px 24px;
+  box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
+}
+
+.patterns-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.patterns-header h3 {
+  font-size: 1.8rem;
+  color: #fbbf24;
+  margin-bottom: 10px;
+}
+
+.patterns-header p {
+  color: #cbd5e1;
+  font-size: 1rem;
+}
+
+.patterns-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.pattern-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  padding: 16px 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pattern-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.pattern-writing {
+  font-family: 'Courier New', monospace;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #facc15;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.pattern-sound {
+  font-family: monospace;
+  font-size: 1.1rem;
+  color: #34d399;
+  background: rgba(0,0,0,0.4);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin: 8px 0;
+}
+
+.pattern-example {
+  font-size: 0.95rem;
+  color: #a5f3fc;
+  margin: 10px 0 5px;
+  font-style: italic;
+}
+
+.pattern-meaning {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  border-top: 1px dashed rgba(255,255,255,0.15);
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.patterns-footer {
+  margin-top: 32px;
+  padding: 18px 20px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.patterns-footer p {
+  color: #e2e8f0;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .pronunciation-patterns {
+    padding: 18px;
+  }
+  .patterns-header h3 {
+    font-size: 1.4rem;
+  }
+  .pattern-writing {
+    font-size: 1.3rem;
+  }
+}
