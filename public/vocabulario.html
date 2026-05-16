@@ -28,323 +28,407 @@
     .card-header {
       font-weight: bold;
       font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .card-header:hover {
+      filter: brightness(0.95);
+      transform: translateX(5px);
+    }
+    .card-header i {
+      transition: transform 0.3s;
+    }
+    .category-menu {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      padding: 15px 0;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .menu-btn {
+      margin: 5px;
+      transition: all 0.2s;
+    }
+    .menu-btn:hover {
+      transform: translateY(-2px);
+    }
+    .welcome-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+    }
+    .welcome-text h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    .welcome-text p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+    .topic-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+    .section-card {
+      transition: all 0.3s ease;
+    }
+    .section-card.hidden {
+      display: none;
+    }
+    .btn-show-all {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .btn-show-all:hover {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      transform: scale(1.02);
     }
   </style>
 </head>
 <body class="bg-light">
 
   <div class="container py-4">
-    <h1 class="text-center mb-4">📚 Vocabulário Inglês - Duolingo Style</h1>
-    <p class="text-center text-muted mb-4">🔊 Volte para o app de pronúncia para treinar a fala!</p>
+    
+    <!-- 🌟 Boas-vindas e descrição -->
+    <div class="welcome-text text-center">
+      <h1>📚 Vocabulário Inglês - Estilo Duolingo</h1>
+      <p>🚀 Aprenda inglês de forma divertida e organizada!</p>
+      <div class="mt-3">
+        <span class="topic-badge">🎯 +200 palavras</span>
+        <span class="topic-badge">📖 Frases de exemplo</span>
+        <span class="topic-badge">🔊 Pronúncia incluída</span>
+        <span class="topic-badge">🎮 Aprendizado interativo</span>
+      </div>
+    </div>
+
+    <div class="text-center text-muted mb-3">
+      <p>🔊 Volte para o app de pronúncia para treinar a fala!<br>
+      📌 Clique nos títulos das seções para mostrar ou esconder o conteúdo</p>
+    </div>
+
+    <!-- 🎯 Menu de Categorias -->
+    <div class="category-menu">
+      <div class="d-flex flex-wrap justify-content-center">
+        <button class="btn btn-primary menu-btn" onclick="showAllSections()">📚 Mostrar Tudo</button>
+        <button class="btn btn-secondary menu-btn" onclick="hideAllSections()">🔒 Esconder Tudo</button>
+        <hr class="w-100 my-2">
+        <button class="btn btn-outline-primary menu-btn" onclick="toggleSection('body')">🧍‍♂️ Corpo</button>
+        <button class="btn btn-outline-success menu-btn" onclick="toggleSection('food')">🍎 Frutas</button>
+        <button class="btn btn-outline-warning menu-btn" onclick="toggleSection('animals')">🐶 Animais</button>
+        <button class="btn btn-outline-danger menu-btn" onclick="toggleSection('family')">👪 Parentes</button>
+        <button class="btn btn-outline-primary menu-btn" onclick="toggleSection('professions')">👔 Profissões</button>
+        <button class="btn btn-outline-danger menu-btn" onclick="toggleSection('health')">🤒 Saúde</button>
+        <button class="btn btn-outline-primary menu-btn" onclick="toggleSection('feelings')">😊 Sentimentos</button>
+        <button class="btn btn-outline-secondary menu-btn" onclick="toggleSection('verbs')">🕒 Verbos</button>
+        <button class="btn btn-outline-info menu-btn" onclick="toggleSection('opposites')">🆚 Opostos</button>
+        <button class="btn btn-outline-dark menu-btn" onclick="toggleSection('questions')">❓ Perguntas</button>
+      </div>
+    </div>
 
     <!-- 🧍‍♂️ Partes do Corpo -->
-    <div class="card mb-4">
-      <div class="card-header bg-primary text-white">
-        🧍‍♂️ Partes do Corpo (Body Parts)
-      </div>
-      <div class="card-body table-responsive">
-        <table class="table table-bordered table-striped">
-          <thead class="table-light">
-            <tr>
-              <th>Inglês</th>
-              <th>Português</th>
-              <th>Frase em Inglês</th>
-              <th>Tradução</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Nose</td><td>Nariz</td><td>Your nose is dirty.</td><td>Seu nariz está sujo.</td></tr>
-            <tr><td>Mouth</td><td>Boca</td><td>Open your mouth.</td><td>Abra a boca.</td></tr>
-            <tr><td>Ear/Ears</td><td>Orelha/Orelhas</td><td>My ears are big.</td><td>Minhas orelhas são grandes.</td></tr>
-            <tr><td>Eye/Eyes</td><td>Olho/Olhos</td><td>My eyes are blue.</td><td>Meus olhos são azuis.</td></tr>
-            <tr><td>Foot/Feet</td><td>Pé/Pés</td><td>My right foot hurts after running.</td><td>Meu pé direito dói depois de correr.</td></tr>
-            <tr><td>Leg/Legs</td><td>Perna/Pernas</td><td>My leg hurts.</td><td>Minha perna dói.</td></tr>
-            <tr><td>Hand/Hands</td><td>Mão/Mãos</td><td>Wash your hands before eating.</td><td>Lave suas mãos antes de comer.</td></tr>
-            <tr><td>Arm/Arms</td><td>Braço/Braços</td><td>I hurt my arm while playing basketball.</td><td>Eu machuquei meu braço enquanto jogava basquete.</td></tr>
-            <tr><td>Finger/Fingers</td><td>Dedo/Dedos (mão)</td><td>She wears a ring on her middle finger.</td><td>Ela usa um anel no dedo do meio.</td></tr>
-            <tr><td>Toe/Toes</td><td>Dedo/Dedos (pé)</td><td>I stubbed my toe on the table.</td><td>Eu bati o dedo do pé na mesa.</td></tr>
-          </tbody>
-        </table>
+    <div id="section-body" class="section-card">
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white" onclick="toggleSectionContent('body')">
+          🧍‍♂️ Partes do Corpo (Body Parts) <span style="float: right;">▼</span>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead class="table-light"><tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr></thead>
+            <tbody>
+              <tr><td>Nose</td><td>Nariz</td><td>Your nose is dirty.</td><td>Seu nariz está sujo.</td></tr>
+              <tr><td>Mouth</td><td>Boca</td><td>Open your mouth.</td><td>Abra a boca.</td></tr>
+              <tr><td>Ear/Ears</td><td>Orelha/Orelhas</td><td>My ears are big.</td><td>Minhas orelhas são grandes.</td></tr>
+              <tr><td>Eye/Eyes</td><td>Olho/Olhos</td><td>My eyes are blue.</td><td>Meus olhos são azuis.</td></tr>
+              <tr><td>Foot/Feet</td><td>Pé/Pés</td><td>My right foot hurts after running.</td><td>Meu pé direito dói depois de correr.</td></tr>
+              <tr><td>Leg/Legs</td><td>Perna/Pernas</td><td>My leg hurts.</td><td>Minha perna dói.</td></tr>
+              <tr><td>Hand/Hands</td><td>Mão/Mãos</td><td>Wash your hands before eating.</td><td>Lave suas mãos antes de comer.</td></tr>
+              <tr><td>Arm/Arms</td><td>Braço/Braços</td><td>I hurt my arm while playing basketball.</td><td>Eu machuquei meu braço enquanto jogava basquete.</td></tr>
+              <tr><td>Finger/Fingers</td><td>Dedo/Dedos (mão)</td><td>She wears a ring on her middle finger.</td><td>Ela usa um anel no dedo do meio.</td></tr>
+              <tr><td>Toe/Toes</td><td>Dedo/Dedos (pé)</td><td>I stubbed my toe on the table.</td><td>Eu bati o dedo do pé na mesa.</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <!-- 🍎 Frutas e Verduras -->
-    <div class="card mb-4">
-      <div class="card-header bg-success text-white">
-        🍎 Frutas e Verduras (Fruits and Vegetables)
-      </div>
-      <div class="card-body table-responsive">
-        <table class="table table-bordered table-striped">
-          <thead class="table-light">
-            <tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Apple</td><td>Maçã</td><td>I eat an apple every day.</td><td>Eu como uma maçã todo dia.</td></tr>
-            <tr><td>Banana</td><td>Banana</td><td>Do you like bananas?</td><td>Você gosta de bananas?</td></tr>
-            <tr><td>Carrot</td><td>Cenoura</td><td>Rabbits eat carrots.</td><td>Coelhos comem cenouras.</td></tr>
-            <tr><td>Potato</td><td>Batata</td><td>Potatoes are delicious.</td><td>Batatas são deliciosas.</td></tr>
-            <tr><td>Lettuce</td><td>Alface</td><td>I don't like lettuce.</td><td>Eu não gosto de alface.</td></tr>
-            <tr><td>Kale</td><td>Couve</td><td>Kale is very healthy.</td><td>Couve é muito saudável.</td></tr>
-            <tr><td>Cabbage</td><td>Repolho</td><td>Cabbage is used in salads.</td><td>Repolho é usado em saladas.</td></tr>
-            <tr><td>Olives</td><td>Azeitona</td><td>I love olives on my pizza.</td><td>Eu amo azeitonas na minha pizza.</td></tr>
-            <tr><td>Tomato</td><td>Tomate</td><td>Tomatoes are red.</td><td>Tomates são vermelhos.</td></tr>
-            <tr><td>Pineapple</td><td>Abacaxi</td><td>Pineapple is sweet.</td><td>Abacaxi é doce.</td></tr>
-            <tr><td>Mango</td><td>Manga</td><td>Mango is my favorite fruit.</td><td>Manga é minha fruta favorita.</td></tr>
-          </tbody>
-        </table>
+    <div id="section-food" class="section-card">
+      <div class="card mb-4">
+        <div class="card-header bg-success text-white" onclick="toggleSectionContent('food')">
+          🍎 Frutas e Verduras (Fruits and Vegetables) <span style="float: right;">▼</span>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead class="table-light"><tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr></thead>
+            <tbody>
+              <tr><td>Apple</td><td>Maçã</td><td>I eat an apple every day.</td><td>Eu como uma maçã todo dia.</td></tr>
+              <tr><td>Banana</td><td>Banana</td><td>Do you like bananas?</td><td>Você gosta de bananas?</td></tr>
+              <tr><td>Carrot</td><td>Cenoura</td><td>Rabbits eat carrots.</td><td>Coelhos comem cenouras.</td></tr>
+              <tr><td>Potato</td><td>Batata</td><td>Potatoes are delicious.</td><td>Batatas são deliciosas.</td></tr>
+              <tr><td>Lettuce</td><td>Alface</td><td>I don't like lettuce.</td><td>Eu não gosto de alface.</td></tr>
+              <tr><td>Kale</td><td>Couve</td><td>Kale is very healthy.</td><td>Couve é muito saudável.</td></tr>
+              <tr><td>Cabbage</td><td>Repolho</td><td>Cabbage is used in salads.</td><td>Repolho é usado em saladas.</td></tr>
+              <tr><td>Olives</td><td>Azeitona</td><td>I love olives on my pizza.</td><td>Eu amo azeitonas na minha pizza.</td></tr>
+              <tr><td>Tomato</td><td>Tomate</td><td>Tomatoes are red.</td><td>Tomates são vermelhos.</td></tr>
+              <tr><td>Pineapple</td><td>Abacaxi</td><td>Pineapple is sweet.</td><td>Abacaxi é doce.</td></tr>
+              <tr><td>Mango</td><td>Manga</td><td>Mango is my favorite fruit.</td><td>Manga é minha fruta favorita.</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <!-- 🐶 Animais -->
-    <div class="card mb-4">
-      <div class="card-header bg-warning">
-        🐶 Animais (Animals)
-      </div>
-      <div class="card-body table-responsive">
-        <table class="table table-bordered table-striped">
-          <thead><tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr></thead>
-          <tbody>
-            <tr><td>Dog</td><td>Cachorro</td><td>The dog is barking.</td><td>O cachorro está latindo.</td></tr>
-            <tr><td>Cat</td><td>Gato</td><td>I have a cat.</td><td>Eu tenho um gato.</td></tr>
-            <tr><td>Bird</td><td>Pássaro</td><td>That bird is singing.</td><td>Aquele pássaro está cantando.</td></tr>
-            <tr><td>Horse</td><td>Cavalo</td><td>Horses run fast.</td><td>Cavalos correm rápido.</td></tr>
-            <tr><td>Cow</td><td>Vaca</td><td>The cow gives milk.</td><td>A vaca dá leite.</td></tr>
-          </tbody>
-        </table>
+    <div id="section-animals" class="section-card">
+      <div class="card mb-4">
+        <div class="card-header bg-warning" onclick="toggleSectionContent('animals')">
+          🐶 Animais (Animals) <span style="float: right;">▼</span>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead><tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr></thead>
+            <tbody>
+              <tr><td>Dog</td><td>Cachorro</td><td>The dog is barking.</td><td>O cachorro está latindo.</td></tr>
+              <tr><td>Cat</td><td>Gato</td><td>I have a cat.</td><td>Eu tenho um gato.</td></tr>
+              <tr><td>Bird</td><td>Pássaro</td><td>That bird is singing.</td><td>Aquele pássaro está cantando.</td></tr>
+              <tr><td>Horse</td><td>Cavalo</td><td>Horses run fast.</td><td>Cavalos correm rápido.</td></tr>
+              <tr><td>Cow</td><td>Vaca</td><td>The cow gives milk.</td><td>A vaca dá leite.</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <!-- 👪 Parentes -->
-    <div class="card mb-4">
-      <div class="card-header bg-danger text-white">
-        👪 Parentes (Family Members)
-      </div>
-      <div class="card-body table-responsive">
-        <table class="table table-bordered table-striped">
-          <thead><tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr></thead>
-          <tbody>
-            <tr><td>Father</td><td>Pai</td><td>My father is a teacher.</td><td>Meu pai é professor.</td></tr>
-            <tr><td>Mother</td><td>Mãe</td><td>I love my mother.</td><td>Eu amo minha mãe.</td></tr>
-            <tr><td>Grandfather</td><td>Avô</td><td>My grandfather tells great stories.</td><td>Meu avô conta ótimas histórias.</td></tr>
-            <tr><td>Grandmother</td><td>Avó</td><td>My grandmother is kind.</td><td>Minha avó é gentil.</td></tr>
-            <tr><td>Husband</td><td>Marido</td><td>Her husband is very kind.</td><td>O marido dela é muito gentil.</td></tr>
-            <tr><td>Wife</td><td>Esposa</td><td>His wife is a doctor.</td><td>A esposa dele é médica.</td></tr>
-            <tr><td>Son</td><td>Filho</td><td>My son goes to school.</td><td>Meu filho vai para a escola.</td></tr>
-            <tr><td>Daughter</td><td>Filha</td><td>My daughter likes to draw.</td><td>Minha filha gosta de desenhar.</td></tr>
-            <tr><td>Brother</td><td>Irmão</td><td>Do you have a brother?</td><td>Você tem um irmão?</td></tr>
-            <tr><td>Sister</td><td>Irmã</td><td>My sister is older than me.</td><td>Minha irmã é mais velha que eu.</td></tr>
-            <tr><td>Uncle</td><td>Tio</td><td>My uncle lives in the city.</td><td>Meu tio mora na cidade.</td></tr>
-            <tr><td>Aunt</td><td>Tia</td><td>My aunt cooks delicious meals.</td><td>Minha tia cozinha refeições deliciosas.</td></tr>
-            <tr><td>Cousin</td><td>Primo/Prima</td><td>My cousin plays soccer.</td><td>Meu primo joga futebol.</td></tr>
-            <tr><td>Boyfriend</td><td>Namorado</td><td>My boyfriend is caring.</td><td>Meu namorado é carinhoso.</td></tr>
-            <tr><td>Girlfriend</td><td>Namorada</td><td>Her girlfriend is funny.</td><td>A namorada dela é engraçada.</td></tr>
-            <tr><td>Father-in-law</td><td>Sogro</td><td>My father-in-law is funny.</td><td>Meu sogro é engraçado.</td></tr>
-            <tr><td>Mother-in-law</td><td>Sogra</td><td>My mother-in-law loves gardening.</td><td>Minha sogra adora jardinagem.</td></tr>
-          </tbody>
-        </table>
+    <div id="section-family" class="section-card">
+      <div class="card mb-4">
+        <div class="card-header bg-danger text-white" onclick="toggleSectionContent('family')">
+          👪 Parentes (Family Members) <span style="float: right;">▼</span>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead><tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr></thead>
+            <tbody>
+              <tr><td>Father</td><td>Pai</td><td>My father is a teacher.</td><td>Meu pai é professor.</td></tr>
+              <tr><td>Mother</td><td>Mãe</td><td>I love my mother.</td><td>Eu amo minha mãe.</td></tr>
+              <tr><td>Grandfather</td><td>Avô</td><td>My grandfather tells great stories.</td><td>Meu avô conta ótimas histórias.</td></tr>
+              <tr><td>Grandmother</td><td>Avó</td><td>My grandmother is kind.</td><td>Minha avó é gentil.</td></tr>
+              <tr><td>Husband</td><td>Marido</td><td>Her husband is very kind.</td><td>O marido dela é muito gentil.</td></tr>
+              <tr><td>Wife</td><td>Esposa</td><td>His wife is a doctor.</td><td>A esposa dele é médica.</td></tr>
+              <tr><td>Son</td><td>Filho</td><td>My son goes to school.</td><td>Meu filho vai para a escola.</td></tr>
+              <tr><td>Daughter</td><td>Filha</td><td>My daughter likes to draw.</td><td>Minha filha gosta de desenhar.</td></tr>
+              <tr><td>Brother</td><td>Irmão</td><td>Do you have a brother?</td><td>Você tem um irmão?</td></tr>
+              <tr><td>Sister</td><td>Irmã</td><td>My sister is older than me.</td><td>Minha irmã é mais velha que eu.</td></tr>
+              <tr><td>Uncle</td><td>Tio</td><td>My uncle lives in the city.</td><td>Meu tio mora na cidade.</td></tr>
+              <tr><td>Aunt</td><td>Tia</td><td>My aunt cooks delicious meals.</td><td>Minha tia cozinha refeições deliciosas.</td></tr>
+              <tr><td>Cousin</td><td>Primo/Prima</td><td>My cousin plays soccer.</td><td>Meu primo joga futebol.</td></tr>
+              <tr><td>Boyfriend</td><td>Namorado</td><td>My boyfriend is caring.</td><td>Meu namorado é carinhoso.</td></tr>
+              <tr><td>Girlfriend</td><td>Namorada</td><td>Her girlfriend is funny.</td><td>A namorada dela é engraçada.</td></tr>
+              <tr><td>Father-in-law</td><td>Sogro</td><td>My father-in-law is funny.</td><td>Meu sogro é engraçado.</td></tr>
+              <tr><td>Mother-in-law</td><td>Sogra</td><td>My mother-in-law loves gardening.</td><td>Minha sogra adora jardinagem.</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <!-- 👔 Profissões -->
-    <div class="card mb-4">
-      <div class="card-header bg-primary text-white">
-        👔 Profissões (Professions)
-      </div>
-      <div class="card-body table-responsive">
-        <table class="table table-bordered table-striped">
-          <thead><tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr></thead>
-          <tbody>
-            <tr><td>Teacher</td><td>Professor(a)</td><td>The teacher explains the lesson.</td><td>O professor explica a lição.</td></tr>
-            <tr><td>Doctor</td><td>Médico(a)</td><td>The doctor helps patients.</td><td>O médico ajuda os pacientes.</td></tr>
-            <tr><td>Engineer</td><td>Engenheiro(a)</td><td>The engineer designs bridges.</td><td>O engenheiro projeta pontes.</td></tr>
-            <tr><td>Nurse</td><td>Enfermeiro(a)</td><td>The nurse takes care of the sick.</td><td>A enfermeira cuida dos doentes.</td></tr>
-            <tr><td>Lawyer</td><td>Advogado(a)</td><td>The lawyer defends clients.</td><td>O advogado defende os clientes.</td></tr>
-            <tr><td>Police officer</td><td>Policial</td><td>The police officer keeps the city safe.</td><td>O policial mantém a cidade segura.</td></tr>
-            <tr><td>Firefighter</td><td>Bombeiro(a)</td><td>The firefighter puts out fires.</td><td>O bombeiro apaga incêndios.</td></tr>
-            <tr><td>Chef</td><td>Chef</td><td>The chef cooks delicious meals.</td><td>O chef cozinha refeições deliciosas.</td></tr>
-            <tr><td>Mechanic</td><td>Mecânico(a)</td><td>The mechanic fixes cars.</td><td>O mecânico conserta carros.</td></tr>
-            <tr><td>Scientist</td><td>Cientista</td><td>The scientist conducts experiments.</td><td>O cientista realiza experimentos.</td></tr>
-            <tr><td>Student</td><td>Estudante</td><td>The student studies hard.</td><td>O estudante estuda muito.</td></tr>
-            <tr><td>Artist</td><td>Artista</td><td>The artist paints beautiful pictures.</td><td>O artista pinta quadros bonitos.</td></tr>
-          </tbody>
-        </table>
+    <div id="section-professions" class="section-card">
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white" onclick="toggleSectionContent('professions')">
+          👔 Profissões (Professions) <span style="float: right;">▼</span>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead><tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr></thead>
+            <tbody>
+              <tr><td>Teacher</td><td>Professor(a)</td><td>The teacher explains the lesson.</td><td>O professor explica a lição.</td></tr>
+              <tr><td>Doctor</td><td>Médico(a)</td><td>The doctor helps patients.</td><td>O médico ajuda os pacientes.</td></tr>
+              <tr><td>Engineer</td><td>Engenheiro(a)</td><td>The engineer designs bridges.</td><td>O engenheiro projeta pontes.</td></tr>
+              <tr><td>Nurse</td><td>Enfermeiro(a)</td><td>The nurse takes care of the sick.</td><td>A enfermeira cuida dos doentes.</td></tr>
+              <tr><td>Lawyer</td><td>Advogado(a)</td><td>The lawyer defends clients.</td><td>O advogado defende os clientes.</td></tr>
+              <tr><td>Police officer</td><td>Policial</td><td>The police officer keeps the city safe.</td><td>O policial mantém a cidade segura.</td></tr>
+              <tr><td>Firefighter</td><td>Bombeiro(a)</td><td>The firefighter puts out fires.</td><td>O bombeiro apaga incêndios.</td></tr>
+              <tr><td>Chef</td><td>Chef</td><td>The chef cooks delicious meals.</td><td>O chef cozinha refeições deliciosas.</td></tr>
+              <tr><td>Mechanic</td><td>Mecânico(a)</td><td>The mechanic fixes cars.</td><td>O mecânico conserta carros.</td></tr>
+              <tr><td>Scientist</td><td>Cientista</td><td>The scientist conducts experiments.</td><td>O cientista realiza experimentos.</td></tr>
+              <tr><td>Student</td><td>Estudante</td><td>The student studies hard.</td><td>O estudante estuda muito.</td></tr>
+              <tr><td>Artist</td><td>Artista</td><td>The artist paints beautiful pictures.</td><td>O artista pinta quadros bonitos.</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
-        <!-- 😊 Sentimentos em Inglês -->
-    <div class="card mb-4">
-      <div class="card-header bg-primary text-white">
-        😊 Sentimentos em Inglês (Feelings)
+    <!-- 🤒 Doenças e Problemas de Saúde -->
+    <div id="section-health" class="section-card">
+      <div class="card mb-4">
+        <div class="card-header bg-danger text-white" onclick="toggleSectionContent('health')">
+          🤒 Doenças e Problemas de Saúde (Illnesses & Health Problems) <span style="float: right;">▼</span>
+        </div>
+        <div class="card-body">
+          <h5 class="text-danger mt-3 mb-3">🤧 Doenças Comuns</h5>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+              <thead class="table-light"><tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr></thead>
+              <tbody>
+                <tr><td>Cold</td><td>Resfriado</td><td>I caught a cold because of the rain.</td><td>Eu peguei um resfriado por causa da chuva.</td></tr>
+                <tr><td>Flu</td><td>Gripe</td><td>She has the flu and is resting at home.</td><td>Ela está com gripe e descansando em casa.</td></tr>
+                <tr><td>Fever</td><td>Febre</td><td>My son has a high fever today.</td><td>Meu filho está com febre alta hoje.</td></tr>
+                <tr><td>Cough</td><td>Tosse</td><td>This dry cough won't go away.</td><td>Essa tosse seca não passa.</td></tr>
+                <tr><td>Headache</td><td>Dor de cabeça</td><td>I need to rest, I have a bad headache.</td><td>Preciso descansar, estou com uma forte dor de cabeça.</td></tr>
+                <tr><td>Toothache</td><td>Dor de dente</td><td>I need to see a dentist. I have a toothache.</td><td>Preciso ir ao dentista. Estou com dor de dente.</td></tr>
+                <tr><td>Stomachache</td><td>Dor de estômago</td><td>Don't eat too much candy, or you'll get a stomachache.</td><td>Não coma muito doce, senão vai ficar com dor de estômago.</td></tr>
+                <tr><td>Sore throat</td><td>Dor de garganta</td><td>My throat hurts when I swallow.</td><td>Minha garganta dói quando engulo.</td></tr>
+                <tr><td>Backache</td><td>Dor nas costas</td><td>Sitting all day gives me a backache.</td><td>Ficar sentado o dia todo me dá dor nas costas.</td></tr>
+                <tr><td>Earache</td><td>Dor de ouvido</td><td>The child was crying because of an earache.</td><td>A criança estava chorando por causa de dor de ouvido.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h5 class="text-warning mt-4 mb-3">🤕 Sintomas e Problemas</h5>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+              <thead class="table-light"><tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr></thead>
+              <tbody>
+                <tr><td>Nausea</td><td>Náusea / Enjoo</td><td>The boat ride gave me nausea.</td><td>O passeio de barco me deu náusea.</td></tr>
+                <tr><td>Vomiting</td><td>Vômito</td><td>He has been vomiting since last night.</td><td>Ele está vomitando desde ontem à noite.</td></tr>
+                <tr><td>Diarrhea</td><td>Diarreia</td><td>Diarrhea can cause dehydration.</td><td>A diarreia pode causar desidratação.</td></tr>
+                <tr><td>Dizziness</td><td>Tontura</td><td>I felt dizziness after standing up too fast.</td><td>Senti tontura depois de levantar muito rápido.</td></tr>
+                <tr><td>Allergy</td><td>Alergia</td><td>I have an allergy to peanuts.</td><td>Tenho alergia a amendoim.</td></tr>
+                <tr><td>Rash</td><td>Erupção cutânea</td><td>She got a rash after using that lotion.</td><td>Ela teve uma erupção cutânea depois de usar aquela loção.</td></tr>
+                <tr><td>Swelling</td><td>Inchaço</td><td>There's swelling around his ankle.</td><td>Há um inchaço ao redor do tornozelo dele.</td></tr>
+                <tr><td>Bruise</td><td>Contusão / Hematoma</td><td>She got a bruise after bumping into the table.</td><td>Ela ficou com um hematoma depois de bater na mesa.</td></tr>
+                <tr><td>Fracture</td><td>Fratura</td><td>The X-ray showed a small fracture.</td><td>O raio-X mostrou uma pequena fratura.</td></tr>
+                <tr><td>Sprain</td><td>Torção / Entorse</td><td>He can't play because of an ankle sprain.</td><td>Ele não pode jogar por causa de uma torção no tornozelo.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <div class="card-body">
-        
-        <!-- 😊 Sentimentos positivos -->
-        <h5 class="text-success mt-3 mb-3">😊 Sentimentos Positivos</h5>
-        <div class="table-responsive">
-          <table class="table table-bordered table-striped">
-            <thead class="table-light">
-              <tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-success"><td>Happy</td><td>Feliz</td><td>I am happy because it's my birthday.</td><td>Estou feliz porque é meu aniversário.</td></tr>
-              <tr class="table-success"><td>Joyful</td><td>Alegre</td><td>The children are joyful at the party.</td><td>As crianças estão alegres na festa.</td></tr>
-              <tr class="table-success"><td>Excited</td><td>Animado</td><td>She is excited about her trip to Paris.</td><td>Ela está animada com a viagem para Paris.</td></tr>
-              <tr class="table-success"><td>Grateful</td><td>Grato</td><td>I am grateful for your help.</td><td>Sou grato pela sua ajuda.</td></tr>
-              <tr class="table-success"><td>Loved</td><td>Amado</td><td>He feels loved by his family.</td><td>Ele se sente amado pela família.</td></tr>
-              <tr class="table-success"><td>Confident</td><td>Confiante</td><td>She is confident she will win the game.</td><td>Ela está confiante que vencerá o jogo.</td></tr>
-              <tr class="table-success"><td>Proud</td><td>Orgulhoso</td><td>I am proud of my son's achievements.</td><td>Estou orgulhoso das conquistas do meu filho.</td></tr>
-              <tr class="table-success"><td>Hopeful</td><td>Esperançoso</td><td>We are hopeful for a better future.</td><td>Estamos esperançosos por um futuro melhor.</td></tr>
-              <tr class="table-success"><td>Calm</td><td>Calmo</td><td>Try to stay calm during the test.</td><td>Tente ficar calmo durante a prova.</td></tr>
-              <tr class="table-success"><td>Relaxed</td><td>Relaxado</td><td>I feel relaxed after a warm bath.</td><td>Me sinto relaxado depois de um banho quente.</td></tr>
-              <tr class="table-success"><td>Satisfied</td><td>Satisfeito</td><td>He was satisfied with the meal.</td><td>Ele ficou satisfeito com a refeição.</td></tr>
-              <tr class="table-success"><td>Peaceful</td><td>Em paz</td><td>The scenery makes me feel peaceful.</td><td>A paisagem me faz sentir em paz.</td></tr>
-              <tr class="table-success"><td>Cheerful</td><td>Alegre</td><td>She has a cheerful personality.</td><td>Ela tem uma personalidade alegre.</td></tr>
-              <tr class="table-success"><td>Optimistic</td><td>Otimista</td><td>He is optimistic about the new project.</td><td>Ele está otimista sobre o novo projeto.</td></tr>
-            </tbody>
-          </table>
-        </div>
+    </div>
 
-        <!-- 😢 Sentimentos negativos -->
-        <h5 class="text-danger mt-4 mb-3">😢 Sentimentos Negativos</h5>
-        <div class="table-responsive">
-          <table class="table table-bordered table-striped">
-            <thead class="table-light">
-              <tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-danger"><td>Sad</td><td>Triste</td><td>She felt sad when her friend moved away.</td><td>Ela ficou triste quando a amiga mudou de cidade.</td></tr>
-              <tr class="table-danger"><td>Angry</td><td>Bravo / Irritado</td><td>My father was angry when he saw the mess.</td><td>Meu pai ficou bravo quando viu a bagunça.</td></tr>
-              <tr class="table-danger"><td>Upset</td><td>Chateado</td><td>She is upset because she lost her phone.</td><td>Ela está chateada porque perdeu o celular.</td></tr>
-              <tr class="table-danger"><td>Frustrated</td><td>Frustrado</td><td>He felt frustrated with the difficult puzzle.</td><td>Ele se sentiu frustrado com o quebra-cabeça difícil.</td></tr>
-              <tr class="table-danger"><td>Anxious</td><td>Ansioso</td><td>I feel anxious before job interviews.</td><td>Me sinto ansioso antes de entrevistas de emprego.</td></tr>
-              <tr class="table-danger"><td>Nervous</td><td>Nervoso</td><td>She was nervous about her first day at school.</td><td>Ela estava nervosa no primeiro dia de aula.</td></tr>
-              <tr class="table-danger"><td>Afraid</td><td>Com medo</td><td>He is afraid of the dark.</td><td>Ele tem medo do escuro.</td></tr>
-              <tr class="table-danger"><td>Scared</td><td>Assustado</td><td>The dog scared the little boy.</td><td>O cachorro assustou o menino pequeno.</td></tr>
-              <tr class="table-danger"><td>Lonely</td><td>Solitário</td><td>Old people sometimes feel lonely.</td><td>Idosos às vezes se sentem solitários.</td></tr>
-              <tr class="table-danger"><td>Jealous</td><td>Com ciúmes</td><td>She is jealous of her sister's new car.</td><td>Ela tem ciúmes do carro novo da irmã.</td></tr>
-              <tr class="table-danger"><td>Guilty</td><td>Culpado</td><td>He felt guilty for lying to his mom.</td><td>Ele se sentiu culpado por mentir para a mãe.</td></tr>
-              <tr class="table-danger"><td>Depressed</td><td>Deprimido</td><td>After the accident, she felt depressed.</td><td>Após o acidente, ela se sentiu deprimida.</td></tr>
-              <tr class="table-danger"><td>Disappointed</td><td>Decepcionado</td><td>I was disappointed with the movie.</td><td>Fiquei decepcionado com o filme.</td></tr>
-              <tr class="table-danger"><td>Tired</td><td>Cansado</td><td>We are tired after a long day at work.</td><td>Estamos cansados depois de um longo dia de trabalho.</td></tr>
-            </tbody>
-          </table>
+    <!-- 😊 Sentimentos em Inglês -->
+    <div id="section-feelings" class="section-card">
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white" onclick="toggleSectionContent('feelings')">
+          😊 Sentimentos em Inglês (Feelings) <span style="float: right;">▼</span>
         </div>
-
-        <!-- 😐 Sentimentos neutros -->
-        <h5 class="text-warning mt-4 mb-3">😐 Sentimentos Neutros</h5>
-        <div class="table-responsive">
-          <table class="table table-bordered table-striped">
-            <thead class="table-light">
-              <tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr>
-            </thead>
-            <tbody>
-              <tr class="table-warning"><td>Surprised</td><td>Surpreso</td><td>She was surprised by the birthday party.</td><td>Ela ficou surpresa com a festa de aniversário.</td></tr>
-              <tr class="table-warning"><td>Confused</td><td>Confuso</td><td>The instructions left him confused.</td><td>As instruções o deixaram confuso.</td></tr>
-              <tr class="table-warning"><td>Curious</td><td>Curioso</td><td>Children are naturally curious about everything.</td><td>Crianças são naturalmente curiosas sobre tudo.</td></tr>
-              <tr class="table-warning"><td>Bored</td><td>Entediado</td><td>I get bored when I have nothing to do.</td><td>Fico entediado quando não tenho nada para fazer.</td></tr>
-              <tr class="table-warning"><td>Shocked</td><td>Chocado</td><td>Everyone was shocked by the news.</td><td>Todos ficaram chocados com a notícia.</td></tr>
-              <tr class="table-warning"><td>Indifferent</td><td>Indiferente</td><td>He was indifferent to the criticism.</td><td>Ele foi indiferente às críticas.</td></tr>
-              <tr class="table-warning"><td>Thoughtful</td><td>Pensativo</td><td>She stayed thoughtful for a few minutes.</td><td>Ela ficou pensativa por alguns minutos.</td></tr>
-              <tr class="table-warning"><td>Uncertain</td><td>Incisivo</td><td>I am uncertain about the future.</td><td>Estou incerto sobre o futuro.</td></tr>
-              <tr class="table-warning"><td>Focused</td><td>Focado</td><td>He remained focused during the exam.</td><td>Ele permaneceu focado durante a prova.</td></tr>
-              <tr class="table-warning"><td>Distracted</td><td>Distraído</td><td>The phone call made her distracted.</td><td>A ligação a deixou distraída.</td></tr>
-            </tbody>
-          </table>
+        <div class="card-body">
+          <h5 class="text-success mt-3 mb-3">😊 Sentimentos Positivos</h5>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+              <thead class="table-light"><tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr></thead>
+              <tbody>
+                <tr><td>Happy</td><td>Feliz</td><td>I am happy because it's my birthday.</td><td>Estou feliz porque é meu aniversário.</td></tr>
+                <tr><td>Joyful</td><td>Alegre</td><td>The children are joyful at the party.</td><td>As crianças estão alegres na festa.</td></tr>
+                <tr><td>Excited</td><td>Animado</td><td>She is excited about her trip to Paris.</td><td>Ela está animada com a viagem para Paris.</td></tr>
+                <tr><td>Grateful</td><td>Grato</td><td>I am grateful for your help.</td><td>Sou grato pela sua ajuda.</td></tr>
+                <tr><td>Loved</td><td>Amado</td><td>He feels loved by his family.</td><td>Ele se sente amado pela família.</td></tr>
+                <tr><td>Confident</td><td>Confiante</td><td>She is confident she will win the game.</td><td>Ela está confiante que vencerá o jogo.</td></tr>
+                <tr><td>Proud</td><td>Orgulhoso</td><td>I am proud of my son's achievements.</td><td>Estou orgulhoso das conquistas do meu filho.</td></tr>
+                <tr><td>Hopeful</td><td>Esperançoso</td><td>We are hopeful for a better future.</td><td>Estamos esperançosos por um futuro melhor.</td></tr>
+                <tr><td>Calm</td><td>Calmo</td><td>Try to stay calm during the test.</td><td>Tente ficar calmo durante a prova.</td></tr>
+                <tr><td>Relaxed</td><td>Relaxado</td><td>I feel relaxed after a warm bath.</td><td>Me sinto relaxado depois de um banho quente.</td></tr>
+                <tr><td>Satisfied</td><td>Satisfeito</td><td>He was satisfied with the meal.</td><td>Ele ficou satisfeito com a refeição.</td></tr>
+                <tr><td>Peaceful</td><td>Em paz</td><td>The scenery makes me feel peaceful.</td><td>A paisagem me faz sentir em paz.</td></tr>
+                <tr><td>Cheerful</td><td>Alegre</td><td>She has a cheerful personality.</td><td>Ela tem uma personalidade alegre.</td></tr>
+                <tr><td>Optimistic</td><td>Otimista</td><td>He is optimistic about the new project.</td><td>Ele está otimista sobre o novo projeto.</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-
-        <!-- 💔 Sentimentos específicos -->
-        <h5 class="text-info mt-4 mb-3">💔 Outros Sentimentos</h5>
-        <div class="table-responsive">
-          <table class="table table-bordered table-striped">
-            <thead class="table-light">
-              <tr><th>Inglês</th><th>Português</th><th>Frase em Inglês</th><th>Tradução</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Heartbroken</td><td>Com o coração partido</td><td>After the breakup, he was heartbroken.</td><td>Após o término, ele ficou com o coração partido.</td></tr>
-              <tr><td>Embarrassed</td><td>Envergonhado</td><td>She felt embarrassed when she fell in public.</td><td>Ela ficou envergonhada quando caiu em público.</td></tr>
-              <tr><td>Ashamed</td><td>Avergonhado / Culpado</td><td>He was ashamed of his bad behavior.</td><td>Ele estava envergonhado do seu mau comportamento.</td></tr>
-              <tr><td>Overwhelmed</td><td>Sobrecarregado</td><td>She felt overwhelmed by all the work.</td><td>Ela se sentiu sobrecarregada com todo o trabalho.</td></tr>
-              <tr><td>Relieved</td><td>Aliviado</td><td>I was relieved when I passed the test.</td><td>Fiquei aliviado quando passei na prova.</td></tr>
-              <tr><td>Nostalgic</td><td>Nostálgico</td><td>Looking at old photos makes me nostalgic.</td><td>Olhar fotos antigas me deixa nostálgico.</td></tr>
-              <tr><td>Inspired</td><td>Inspirado</td><td>Her speech made me feel inspired.</td><td>O discurso dela me fez sentir inspirado.</td></tr>
-              <tr><td>Motivated</td><td>Motivado</td><td>I feel motivated to study more.</td><td>Sinto-me motivado para estudar mais.</td></tr>
-              <tr><td>Insecure</td><td>Inseguro</td><td>He feels insecure about his new job.</td><td>Ele se sente inseguro sobre seu novo emprego.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
       </div>
     </div>
 
     <!-- 🕒 Verbos -->
-    <div class="card mb-4">
-      <div class="card-header bg-secondary text-white">
-        🕒 Verbos Comuns (Common Verbs)
-      </div>
-      <div class="card-body table-responsive">
-        <table class="table table-bordered table-striped">
-          <thead><tr><th>Verbo</th><th>Presente (I...)</th><th>Passado (I...)</th><th>Tradução</th></tr></thead>
-          <tbody>
-            <tr><td>To eat</td><td>I eat</td><td>I ate</td><td>Comer</td></tr>
-            <tr><td>To go</td><td>I go</td><td>I went</td><td>Ir</td></tr>
-            <tr><td>To have</td><td>I have</td><td>I had</td><td>Ter</td></tr>
-            <tr><td>To be</td><td>I am</td><td>I was</td><td>Ser/Estar</td></tr>
-            <tr><td>To see</td><td>I see</td><td>I saw</td><td>Ver</td></tr>
-            <tr><td>To do</td><td>I do</td><td>I did</td><td>Fazer</td></tr>
-            <tr><td>To say</td><td>I say</td><td>I said</td><td>Dizer</td></tr>
-            <tr><td>To get</td><td>I get</td><td>I got</td><td>Obter</td></tr>
-          </tbody>
-        </table>
+    <div id="section-verbs" class="section-card">
+      <div class="card mb-4">
+        <div class="card-header bg-secondary text-white" onclick="toggleSectionContent('verbs')">
+          🕒 Verbos Comuns (Common Verbs) <span style="float: right;">▼</span>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead><tr><th>Verbo</th><th>Presente (I...)</th><th>Passado (I...)</th><th>Tradução</th></tr></thead>
+            <tbody>
+              <tr><td>To eat</td><td>I eat</td><td>I ate</td><td>Comer</td></tr>
+              <tr><td>To go</td><td>I go</td><td>I went</td><td>Ir</td></tr>
+              <tr><td>To have</td><td>I have</td><td>I had</td><td>Ter</td></tr>
+              <tr><td>To be</td><td>I am</td><td>I was</td><td>Ser/Estar</td></tr>
+              <tr><td>To see</td><td>I see</td><td>I saw</td><td>Ver</td></tr>
+              <tr><td>To do</td><td>I do</td><td>I did</td><td>Fazer</td></tr>
+              <tr><td>To say</td><td>I say</td><td>I said</td><td>Dizer</td></tr>
+              <tr><td>To get</td><td>I get</td><td>I got</td><td>Obter</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <!-- 🆚 Opostos -->
-    <div class="card mb-4">
-      <div class="card-header bg-info text-white">
-        🆚 Palavras Opostas (Opposites)
-      </div>
-      <div class="card-body table-responsive">
-        <table class="table table-bordered table-striped">
-          <thead><tr><th>Inglês</th><th>Português</th></tr></thead>
-          <tbody>
-            <tr><td>wet / dry</td><td>molhado / seco</td></tr>
-            <tr><td>hot / cold</td><td>quente / frio</td></tr>
-            <tr><td>big / small</td><td>grande / pequeno</td></tr>
-            <tr><td>new / old</td><td>novo / velho</td></tr>
-            <tr><td>up / down</td><td>subir / descer</td></tr>
-            <tr><td>on / off</td><td>ligado / desligado</td></tr>
-            <tr><td>fat / thin</td><td>gordo / magro</td></tr>
-            <tr><td>left / right</td><td>esquerda / direita</td></tr>
-            <tr><td>ugly / beautiful</td><td>feio / bonito</td></tr>
-            <tr><td>tall / short</td><td>alto / baixo</td></tr>
-            <tr><td>long / short</td><td>comprido / curto</td></tr>
-            <tr><td>start / end</td><td>início / fim</td></tr>
-            <tr><td>many / few</td><td>muitos / poucos</td></tr>
-            <tr><td>cheap / expensive</td><td>barato / caro</td></tr>
-            <tr><td>clean / dirty</td><td>limpo / sujo</td></tr>
-            <tr><td>open / close</td><td>abrir / fechar</td></tr>
-            <tr><td>happy / sad</td><td>feliz / triste</td></tr>
-            <tr><td>strong / weak</td><td>forte / fraco</td></tr>
-          </tbody>
-        </table>
+    <div id="section-opposites" class="section-card">
+      <div class="card mb-4">
+        <div class="card-header bg-info text-white" onclick="toggleSectionContent('opposites')">
+          🆚 Palavras Opostas (Opposites) <span style="float: right;">▼</span>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead><tr><th>Inglês</th><th>Português</th></tr></thead>
+            <tbody>
+              <tr><td>wet / dry</td><td>molhado / seco</td></tr>
+              <tr><td>hot / cold</td><td>quente / frio</td></tr>
+              <tr><td>big / small</td><td>grande / pequeno</td></tr>
+              <tr><td>new / old</td><td>novo / velho</td></tr>
+              <tr><td>up / down</td><td>subir / descer</td></tr>
+              <tr><td>on / off</td><td>ligado / desligado</td></tr>
+              <tr><td>fat / thin</td><td>gordo / magro</td></tr>
+              <tr><td>left / right</td><td>esquerda / direita</td></tr>
+              <tr><td>ugly / beautiful</td><td>feio / bonito</td></tr>
+              <tr><td>tall / short</td><td>alto / baixo</td></tr>
+              <tr><td>long / short</td><td>comprido / curto</td></tr>
+              <tr><td>start / end</td><td>início / fim</td></tr>
+              <tr><td>many / few</td><td>muitos / poucos</td></tr>
+              <tr><td>cheap / expensive</td><td>barato / caro</td></tr>
+              <tr><td>clean / dirty</td><td>limpo / sujo</td></tr>
+              <tr><td>open / close</td><td>abrir / fechar</td></tr>
+              <tr><td>happy / sad</td><td>feliz / triste</td></tr>
+              <tr><td>strong / weak</td><td>forte / fraco</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <!-- ❓ Perguntas -->
-    <div class="card mb-4">
-      <div class="card-header bg-dark text-white">
-        ❓ Perguntas Comuns (Common Questions)
-      </div>
-      <div class="card-body">
-        <ul class="list-group">
-          <li class="list-group-item">What's your name? → Qual é o seu nome?</li>
-          <li class="list-group-item">How old are you? → Quantos anos você tem?</li>
-          <li class="list-group-item">Where do you live? → Onde você mora?</li>
-          <li class="list-group-item">Do you speak English? → Você fala inglês?</li>
-          <li class="list-group-item">What time is it? → Que horas são?</li>
-          <li class="list-group-item">How are you? → Como você está?</li>
-          <li class="list-group-item">Where are you from? → De onde você é?</li>
-        </ul>
+    <div id="section-questions" class="section-card">
+      <div class="card mb-4">
+        <div class="card-header bg-dark text-white" onclick="toggleSectionContent('questions')">
+          ❓ Perguntas Comuns (Common Questions) <span style="float: right;">▼</span>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item">What's your name? → Qual é o seu nome?</li>
+            <li class="list-group-item">How old are you? → Quantos anos você tem?</li>
+            <li class="list-group-item">Where do you live? → Onde você mora?</li>
+            <li class="list-group-item">Do you speak English? → Você fala inglês?</li>
+            <li class="list-group-item">What time is it? → Que horas são?</li>
+            <li class="list-group-item">How are you? → Como você está?</li>
+            <li class="list-group-item">Where are you from? → De onde você é?</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -352,6 +436,51 @@
 
   <!-- Botão para voltar ao app de pronúncia -->
   <a href="/" class="btn-home">🎙️ Voltar para Pronúncia</a>
+
+  <script>
+    // Mostrar todas as seções
+    function showAllSections() {
+      document.querySelectorAll('.section-card').forEach(section => {
+        section.classList.remove('hidden');
+      });
+    }
+
+    // Esconder todas as seções
+    function hideAllSections() {
+      document.querySelectorAll('.section-card').forEach(section => {
+        section.classList.add('hidden');
+      });
+    }
+
+    // Alternar visibilidade de uma seção específica
+    function toggleSection(sectionId) {
+      const section = document.getElementById(`section-${sectionId}`);
+      if (section) {
+        section.classList.toggle('hidden');
+      }
+    }
+
+    // Alternar conteúdo do card (esconder/mostrar o body)
+    function toggleSectionContent(sectionId) {
+      const card = document.getElementById(`section-${sectionId}`).querySelector('.card');
+      const body = card.querySelector('.card-body');
+      const header = card.querySelector('.card-header');
+      const arrow = header.querySelector('span');
+      
+      if (body.style.display === 'none') {
+        body.style.display = '';
+        arrow.innerHTML = '▼';
+      } else {
+        body.style.display = 'none';
+        arrow.innerHTML = '▲';
+      }
+    }
+
+    // Inicializar todas as seções visíveis
+    document.querySelectorAll('.section-card').forEach(section => {
+      section.classList.remove('hidden');
+    });
+  </script>
 
 </body>
 </html>
