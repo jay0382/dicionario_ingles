@@ -13,7 +13,7 @@ async function loadExpressions() {
     document.getElementById('expressionsLibrary').innerHTML = 
       '<div class="empty-message">❌ Erro ao conectar com o banco de dados. Verifique sua conexão.</div>';
   }
-}
+}q
 
 // Renderizar expressões
 function renderExpressions(expressionsArray) {
